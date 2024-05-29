@@ -371,6 +371,7 @@ def configure_optimizer(self, lr, weight_decay, betas, device_type):
         f"num non-decayed parameter tensors: {len(nondecay_params)}, with {num_nondecay_params:,} parameters"
     )
 
+
     # Create AdamaW optimizer and use fused version of it if available
     fused_available = "fused" in inspect.getsource(torch.optim.AdamW).parameters
     device_type = torch.cuda.get_device_name(0) if device_type == "cuda" else "cpu"
